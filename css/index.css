@@ -7,12 +7,8 @@
 }
 body {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: #303C6C;
-}
-body #flexContainer {
-    background-color: #FBE8A6;
-    /* height: 748px; */
 }
 body main a {
     border: black 1px solid;
@@ -38,19 +34,26 @@ body main h1 {
     border-radius: 20px;
     border: black solid 1px;
 }
-
+#background {
+    background-image: url("../img/questionMarks.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+}
 
 
 /***********************/
 /******FLEX BOX*********/
 /***********************/
 
-body #flexContainer {
+#flexContainer {
     margin: 0px 70px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
+    background-color: #FBE8A6;
 }
 
 #flexAnswers {
@@ -119,141 +122,178 @@ body #flexContainer {
 /***PSEUDO SELECTORS****/
 /***********************/
 
-#answer1:hover, #answer1:visited{
+#answer1:hover{
     background-color: #b185ff;
+    color: #303C6C;
 }
-#answer2:hover, #answer2:visited {
+#answer2:hover {
     background-color: #ed647b;
     color: #303C6C;
     
 } 
-#answer3:hover, #answer3:visited {
+#answer3:hover {
     background-color: #85ffd6;
     color: #303C6C;
 } 
-#answer4:hover, #answer4:visited {
+#answer4:hover {
     background-color: #ff85e3;
     color: #303C6C;
 }
-/* #answer1:active {
-
-};
-#answer2:active {
-
-};
-#answer3:active {
-
-};
-#answer4:active {
-    
-}  */
-
 #startButton:hover, #nextQuestion:hover {
     background-color: #abffd5;
     color: #303C6C;
     border: black 1px solid;
+}
+#answer1:visited, #answer2:visited, #answer3:visited, #answer4:visited {
+    background-color: cornflowerblue;
 }
 
 /***********************/
 /*****MEDIA QUERIES*****/
 /***********************/
 
-@media only screen and (max-width: 812px) {
+@media only screen and (max-width: 899px) {
     #welcomePic, #quizPic {
         height: 250px;
-        width: 330px;
+        width: 400px;
+        margin: 5px;
         border: black solid 1px;
         border-radius: 20px;
     }
     body main h1 {
         font-size: 30px;
     }
+    #flexContainer {
+        margin: 0px 100px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        background-color: #FBE8A6;
+        justify-content: space-around;
+    }
     #flexAnswers {
         width: 230px;
         height: 300px;
-        margin: 20px 10px;
+        margin: 5px 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-content: center;
         border: black solid 1px;
         border-radius: 20px;
-        background-color: #B4DFE5;
+        background-color: #B4DFE5;      
     }
     #answer1, #answer2, #answer3, #answer4 {
         margin: 10px;
-        padding: 10px;
+        padding: 15px 30px;
         height: 30px;
         position: relative;   
         border: black solid 1px;
         border-radius: 20px;
         background-color: #303C6C;
         color: #B4DFE5;
+        cursor: pointer;
+        /* z-index: 1; */
     }
+
     #startButton, #nextQuestion{
         margin: 0px 30px;
-        margin-bottom: 30px;
-        padding: 10px 10px;
+        margin-bottom: 10px;
+        padding: 15px 15px;
         border-radius: 20px;
+        font-size: 25px;
         background-color: #303C6C;
         color: #B4DFE5;
         border: 1px solid black;
+        cursor: pointer;
     }
     #question {
-        margin-bottom: 20px;
+        margin: 15px 0px 5px;
+    }
+    #background {
+        background-image: url("../img/questionMarks.png");
+        background-position: center;
+        background-size: cover;
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        /* opacity: .5; */
     }
 }
 @media only screen and (min-width: 900px) {
-    #welcomePic, #quizPic {
-        height: 450px;
-        width: 750px;
-        border: black solid 2px;
-        border-radius: 20px;
+    body{
+        height: 100vh;
+        margin: 0px;
+        padding: 0px;
     }
-    body main #question {
+    #welcomePic, #quizPic {
+        height: 250px;
+        width: 450px;
+        border: black solid 1px;
+        border-radius: 20px;
+        margin: 10px;
+    }
+    #question {
+        margin-top: 20px;
+        margin-bottom: 8px;
         width: 40%;
         font-size: 30px;
-        padding: 20px;
+        padding: 10px;
     }
     #flexAnswers {
         width: 600px;
-        height: 360px;
-        margin: 20px 10px;
+        height: 320px;
+        margin: 10px 10px;
         padding: 20px;
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: row wrap;
         justify-content: space-around;
-        align-content: center;
+        text-align: center;
         border: black solid 1px;
         border-radius: 20px;
         background-color: #B4DFE5;
     }
-    body #flexContainer {
+    #flexContainer {
         margin: 0px 120px;
-        height: 780px;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         align-content: center;
         background-color: #FBE8A6;
     }
-    #answer1, #answer2, #answer3, #answer4 {
-        padding: 25px;
+    .answer {
+        padding: 15px;
+        width: 200px;
         height: 30px;
         position: relative;   
         border: black solid 1px;
         border-radius: 20px;
         background-color: #303C6C;
         color: #B4DFE5;
-        font-size: 30px;
+        font-size: 25px;
+        cursor: pointer;
+        opacity: 1;
     }
     #startButton, #nextQuestion{
-        margin: 30px 30px;
+        margin: 10px 30px;
         padding: 20px 20px;
         border-radius: 20px;
         background-color: #303C6C;
         font-size: 30px;
         color: #B4DFE5;
         border: 1px solid black;
+        cursor: pointer;
     }
+    /* #background {
+        background-image: url("../img/questionMarks.png");
+        background-position: center;
+        background-size: cover;
+        border-radius: 20px;
+        height: 400px;
+        width: 100%;
+        opacity: .5;
+    } */
 }
