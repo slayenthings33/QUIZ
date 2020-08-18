@@ -34,12 +34,12 @@ body main h1 {
     border-radius: 20px;
     border: black solid 1px;
 }
-#background {
+/* #background {
     background-image: url("../img/questionMarks.png");
     background-position: center;
     background-size: cover;
     border-radius: 20px;
-}
+} */
 
 
 /***********************/
@@ -174,7 +174,7 @@ body main h1 {
         justify-content: space-around;
     }
     #flexAnswers {
-        width: 230px;
+        width: 250px;
         height: 300px;
         margin: 5px 10px;
         display: flex;
@@ -187,7 +187,7 @@ body main h1 {
     }
     #answer1, #answer2, #answer3, #answer4 {
         margin: 10px;
-        padding: 15px 30px;
+        padding: 10px 20px;
         height: 30px;
         position: relative;   
         border: black solid 1px;
@@ -244,16 +244,15 @@ body main h1 {
     }
     #flexAnswers {
         width: 600px;
-        height: 320px;
+        height: 200px;
         margin: 10px 10px;
         padding: 20px;
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column wrap;
         justify-content: space-around;
         text-align: center;
         border: black solid 1px;
         border-radius: 20px;
-        background-color: #B4DFE5;
     }
     #flexContainer {
         margin: 0px 120px;
@@ -264,8 +263,9 @@ body main h1 {
         align-content: center;
         background-color: #FBE8A6;
     }
-    .answer {
-        padding: 15px;
+    #answer1, #answer2, #answer3, #answer4 {
+        margin: 10px;
+        padding: 20px;
         width: 200px;
         height: 30px;
         position: relative;   

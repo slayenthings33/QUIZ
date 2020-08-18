@@ -11,7 +11,7 @@ let question = document.getElementById("question");
 let quizPic = document.getElementById("quizPic");
 let nextQuestion = document.getElementById("nextQuestion");
 
-let submittedAnswers = [];
+// let submittedAnswers = [];
 
 
 
@@ -19,11 +19,21 @@ let submittedAnswers = [];
 /*********MAIN FUNCTIONS********/
 /*******************************/
 
-function quizQuestions () {
-    for(let i=0; i<questions.length <i++) {
+function checkAnswer () {
+    if (questions[i].answers) {
 
     }
-} 
+}
+
+function quiz () {
+    let totalPoints = 0;
+    let currentQuestion = 0;
+    for(let i=0; i<questions.length; i++) {
+      if (questions.onclick(answers)) {
+          
+      }
+    }
+};
 
 
 
