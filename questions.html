@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="./index.js" defer></script>
     <title>The QUIZ</title>
 </head>
 <body>
     <main id="flexContainer">
         <p id="question">TEST QUESTION</p>
-        <img id="quizPic" src="#" alt="Question Image" id="questionPic">
+        <img id="quizPic" src="./img/peppers.jpeg" alt="Question Image">
         <div id="flexAnswers">
             <!-- <div id="background"> -->
             <div>
@@ -28,7 +30,7 @@
             </div>
         </div>
         <!-- </div> -->
-        <a id="nextQuestion"href="">Next Question</a>
+        <a id="nextQuestion"href="" onclick="startQuiz()">Next Question</a>
     </main>
 </body>
 </html>
