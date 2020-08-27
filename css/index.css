@@ -203,12 +203,17 @@ body main h1 {
         font-family: 'Fondamento', cursive;
         cursor: pointer;
     }
-    #question, #welcomeTitle{
+    #question {
         margin-top: 5px;
         padding: 10px 10px;
         width: 450px;
         text-align: center;
         font-family: 'Fondamento', cursive;
+    }
+    #welcomeTitle {
+        width: 80%;
+        height: 80px;
+        padding: 15px;
     }
 }
 @media only screen and (min-width: 900px) {
@@ -227,7 +232,7 @@ body main h1 {
     #question, #welcomeTitle {
         margin-top: 20px;
         margin-bottom: 8px;
-        width: 50%;
+        width: 700px;
         text-align: center;
         font-size: 30px;
         padding: 15px;
@@ -256,9 +261,10 @@ body main h1 {
         background-color: #FBE8A6;
     }
     #answer1, #answer2, #answer3, #answer4 {
-        margin: 10px;
-        padding: 20px;
-        width: 200px;
+        margin: 5px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        width: 220px;
         height: 30px;
         position: relative;   
         border: black solid 1px;
@@ -268,8 +274,6 @@ body main h1 {
         color: #B4DFE5;
         font-size: 25px;
         cursor: pointer;
-        opacity: 1;
-
     }
     #startButton, #nextQuestion{
         margin: 10px 30px;
