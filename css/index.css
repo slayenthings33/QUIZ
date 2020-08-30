@@ -88,6 +88,11 @@ body main h1 {
     color: #B4DFE5;
     border: 1px solid black;
 }
+#nextQuestion {
+    display: none;
+}
+
+
 
 /***********************/
 /******QUESTIONS********/

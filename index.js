@@ -10,9 +10,11 @@ let answer4 = document.getElementById("answer4");
 let question = document.getElementById("question");
 let quizPic = document.getElementById("quizPic");
 let nextQuestion;
-let flexContainer = document.getElementById("flexContainer");
+let questionContainer = document.getElementById("questionContainer");
+let nextButton = document.getElementById("nextQuestion");
 let startButton = document.getElementById("startButton");
 let submittedAnswers = [];
+let score = 0;
 
 /*************************/
 /**********IMAGES*********/
@@ -93,7 +95,7 @@ let questions = [
         question: "What is Covid-19?",
         image: "./img/virus.png",
         answers: [
-            "An endangered species of beetle", "Lamborghini's 2020 model", "The fiber optic cable connecting Europe to the US", "A Virus"
+            "An endangered species of beetle", "Lamborghini's 2020 model", "A popular dance move", "A Virus"
         ],
         rightAnswer: 3
     }, {
@@ -112,189 +114,77 @@ let questions = [
         rightAnswer: 0
     }
 ];
-
 let numOfQuestions = questions.length;
 let questionCounter = 0;
 
-let questionPage = `
-<main id="flexContainer">
-<p id="question">${
-    questions[questionCounter].question
-}</p>
-<img id="quizPic" src="${
-    questions[questionCounter].image
-}" alt="Question Image">
-<div id="flexAnswers">
-<div>
-<p class="answer" id="answer1">${
-    questions[questionCounter].answers[0]
-}</p>
-</div>
-<div>
-<p class="answer" id="answer2">${
-    questions[questionCounter].answers[1]
-}</p>
-</div>
-<div>
-<p class="answer" id="answer3">${
-    questions[questionCounter].answers[2]
-}</p>
-</div>
-<div>
-<p class="answer"id="answer4">${
-    questions[questionCounter].answers[3]
-}</p>
-</div>
-</div>    
-<button id="nextQuestion" onclick="change()">Next Question</button>
-</main>            
-`;
+function questionPage(counter) {
+    return `
+    <div>
+    <p id="question">${
+        questions[counter].question
+    }</p>
+    <img id="quizPic" src="${
+        questions[counter].image
+    }" alt="Question Image">
+    <div id="flexAnswers">
+    <div>
+    <p class="answer" id="answer1" value="0">${
+        questions[counter].answers[0]
+    }</p>
+    </div>
+    <div>
+    <p class="answer" id="answer2" value="1">${
+        questions[counter].answers[1]
+    }</p>
+    </div>
+    <div>
+    <p class="answer" id="answer3" value="2">${
+        questions[counter].answers[2]
+    }</p>
+    </div>
+    <div>
+    <p class="answer"id="answer4" value="3">${
+        questions[counter].answers[3]
+    }</p>
+    </div>
+    </div>          
+    `;
+}
+
 
 
 /*******************************/
 /*********MAIN FUNCTIONS********/
 /*******************************/
 
-function startQuiz() {
-    startButton.innerHTML = "Next Question";
-    flexContainer.innerHTML = questionPage;
 
 
-    let nextQuestion = document.getElementById("nextQuestion");
-    nextQuestion.onclick = () => change();
-    let answer1 = document.getElementById("answer1");
-    let answer2 = document.getElementById("answer2");
-    let answer3 = document.getElementById("answer3");
-    let answer4 = document.getElementById("answer4");
-
-    let userChoice = [];
-
-    answer1.onclick = () => {
-        answer1.style.border = "1px black solid";
-        answer1.style.fontWeight = "normal";
-        answer1.style.backgroundColor = "#b185ff"
-        answer1.style.color = "#303C6C"
-        answer2.style.border = "1px black solid";
-        answer2.style.fontWeight = "normal";
-        answer2.style.backgroundColor = "#303C6C"
-        answer2.style.color = "#B4DFE5"
-        answer3.style.border = "1px black solid";
-        answer3.style.fontWeight = "normal";
-        answer3.style.backgroundColor = "#303C6C"
-        answer3.style.color = "#B4DFE5"
-        answer4.style.border = "1px black solid";
-        answer4.style.fontWeight = "normal";
-        answer4.style.backgroundColor = "#303C6C"
-        answer4.style.color = "#B4DFE5"
-        userChoice.push(0);
-        console.log(userChoice);
-    };
-    answer2.onclick = () => {
-        answer1.style.border = "1px black solid";
-        answer1.style.fontWeight = "normal";
-        answer1.style.color = "#B4DFE5";
-        answer1.style.backgroundColor = "#303C6C";
-        answer2.style.border = "1px black solid"
-        answer2.style.fontWeight = "normal"
-        answer2.style.backgroundColor = "#ed647b";
-        answer2.style.color = "#303C6C";
-        answer3.style.border = "1px black solid";
-        answer3.style.fontWeight = "normal";
-        answer3.style.backgroundColor = "#303C6C";
-        answer3.style.color = "#B4DFE5";
-        answer4.style.border = "1px black solid";
-        answer4.style.fontWeight = "normal";
-        answer4.style.backgroundColor = "#303C6C";
-        answer4.style.color = "#B4DFE5";
-        userChoice.push(1);
-        console.log(userChoice);
-    };
-    answer3.onclick = () => {
-        answer1.style.border = "1px black solid";
-        answer1.style.fontWeight = "normal";
-        answer1.style.color = "#B4DFE5";
-        answer1.style.backgroundColor = "#303C6C";
-        answer2.style.border = "1px black solid";
-        answer2.style.fontWeight = "normal";
-        answer2.style.color = "#B4DFE5";
-        answer2.style.backgroundColor = "#303C6C";
-        answer3.style.border = "1px black solid"
-        answer3.style.fontWeight = "normal"
-        answer3.style.color = "#303C6C";
-        answer3.style.backgroundColor = "#85ffd6";
-        answer4.style.border = "1px black solid";
-        answer4.style.fontWeight = "normal";
-        answer4.style.backgroundColor = "#303C6C";
-        answer4.style.color = "#B4DFE5";
-        userChoice.push(2)
-        console.log(userChoice)
-    };
-    answer4.onclick = () => {
-        answer1.style.border = "1px black solid";
-        answer1.style.fontWeight = "normal";
-        answer1.style.color = "#B4DFE5";
-        answer1.style.backgroundColor = "#303C6C";
-        answer2.style.border = "1px black solid";
-        answer2.style.fontWeight = "normal";
-        answer2.style.color = "#B4DFE5";
-        answer2.style.backgroundColor = "#303C6C";
-        answer3.style.border = "1px black solid";
-        answer3.style.fontWeight = "normal";
-        answer3.style.color = "#B4DFE5";
-        answer3.style.backgroundColor = "#303C6C";
-        answer4.style.border = "1px black solid"
-        answer4.style.fontWeight = "normal"
-        answer4.style.color = "#303C6C";
-        answer4.style.backgroundColor = "#ff85e3";
-        userChoice.push(3)
-        console.log(userChoice)
-    };
+function runQuiz() {
+    startButton.style.display = "none";
+    nextButton.style.display = "flex";
+    nextButton.onclick = () => {
+        if (questionCounter < numOfQuestions) {
+            console.log(questionPage);
+            change(score);
+        } else {
+            alert(`You finished with ${score} correct!`);
+        }
+    } 
+    change(score); 
 }
 
-startButton.onclick = startQuiz;
-
-function change() {
-    nextQuestion;
-    console.log(nextQuestion);
+function change(score) {
     if (questionCounter < numOfQuestions) {
-        console.log(nextQuestion);
-        questionCounter++;
-        let questionPage = `
-        <main id="flexContainer">
-        <p id="question">${
-            questions[questionCounter].question
-        }</p>
-        <img id="quizPic" src="${
-            questions[questionCounter].image
-        }" alt="Question Image">
-        <div id="flexAnswers">
-        <div>
-        <p class="answer" id="answer1">${
-            questions[questionCounter].answers[0]
-        }</p>
-        </div>
-        <div>
-        <p class="answer" id="answer2">${
-            questions[questionCounter].answers[1]
-        }</p>
-        </div>
-        <div>
-        <p class="answer" id="answer3">${
-            questions[questionCounter].answers[2]
-        }</p>
-        </div>
-        <div>
-        <p class="answer"id="answer4">${
-            questions[questionCounter].answers[3]
-        }</p>
-        </div>
-        </div>    
-        <button id="nextQuestion" onclick="change()">Next Question</button>
-        </main>            
-        `;
-        flexContainer.innerHTML = questionPage;
-
+        let userChoice = -1;
+        questionContainer.innerHTML = questionPage(questionCounter);
+        let answer1 = document.getElementById("answer1");
+        let answer2 = document.getElementById("answer2");
+        let answer3 = document.getElementById("answer3");
+        let answer4 = document.getElementById("answer4");
+        console.log("change answer1");
+        console.log(answer1);
         answer1.onclick = () => {
+            console.log("Iǘe been clicked");
             answer1.style.border = "1px black solid";
             answer1.style.fontWeight = "normal";
             answer1.style.backgroundColor = "#b185ff"
@@ -311,9 +201,13 @@ function change() {
             answer4.style.fontWeight = "normal";
             answer4.style.backgroundColor = "#303C6C";
             answer4.style.color = "#B4DFE5";
-            userChoice.push(0);
+            console.log(event.target);
+            console.log(event.target.value);
+            userChoice = 0;
             console.log(userChoice);
         };
+        console.log("change answer2");
+        console.log(answer2);
         answer2.onclick = () => {
             answer1.style.border = "1px black solid";
             answer1.style.fontWeight = "normal";
@@ -331,9 +225,11 @@ function change() {
             answer4.style.fontWeight = "normal";
             answer4.style.backgroundColor = "#303C6C";
             answer4.style.color = "#B4DFE5";
-            userChoice.push(1);
+            userChoice = 1;
             console.log(userChoice);
         };
+        console.log("change answer3");
+        console.log(answer3);
         answer3.onclick = () => {
             answer1.style.border = "1px black solid";
             answer1.style.fontWeight = "normal";
@@ -351,9 +247,11 @@ function change() {
             answer4.style.fontWeight = "normal";
             answer4.style.backgroundColor = "#303C6C";
             answer4.style.color = "#B4DFE5";
-            userChoice.push(2);
+            userChoice = 2;
             console.log(userChoice);
         };
+        console.log("change answer4");
+        console.log(answer4);
         answer4.onclick = () => {
             answer1.style.border = "1px black solid";
             answer1.style.fontWeight = "normal";
@@ -371,30 +269,41 @@ function change() {
             answer4.style.fontWeight = "normal"
             answer4.style.color = "#303C6C";
             answer4.style.backgroundColor = "#ff85e3";
-            userChoice.push(3);
+            userChoice = 3;
             console.log(userChoice);
-        };
-        let correct = 0;
-        if (userChoice.pop() === questions[questionCounter].rightAnswer) {
-            correct++;
-            console.log(correct);
         }
+        console.log(userChoice);
+        // let finalChoice = userChoice[userChoice.length - 1];
+        let finalChoice = userChoice;
+        let correctAnswer = questions[questionCounter].rightAnswer;
+        console.log("Did we get the answer correct?")
+        console.log(finalChoice);
+        console.log(correctAnswer);
+        console.log(finalChoice === correctAnswer);
+        if (finalChoice === correctAnswer) {
+            score++;
+            console.log("score");
+            console.log(score);
+        }
+        questionCounter++;
     }
+};
+
+function endQuiz() {
+
+    let resultsPage = `
+    <main id="flexContainer">
+    <p id="question">You made it to the end of the Quiz!</p>
+    <img id="quizPic" src="./img/allDone.gif" alt="Done and Done">
+    <div id="resultSection">
+    <p class="answer" id="results">Number correct: ${correct}</p>
+    <button id="nextQuestion" onclick="runQuiz()">Retake Quiz</button>
+    </main>            
+    </div>    
+    `;
+    questionContainer.innerHTML = resultsPage;
 }
 
-// function userChoice() {
-//     while(questionCounter < numOfQuestions) {
-//         if(questions[questionCounter].answers[0].onclick) {
-//             submittedAnswers.push(0);
-//         } else if(questions[questionCounter].answers[1].onclick) {
-//             submittedAnswers.push(1);
-//         } else if(questions[questionCounter].answers[2].onclick) {
-//             submittedAnswers.push(2);
-//         } else if(questions[questionCounter].answers[0].onclick) {
-//             submittedAnswers.push(3);
-//         }
-//     }
-// };
 
 // function checkAnswer() {
 //     while (questionCounter < numOfQuestions) {
@@ -408,3 +317,6 @@ function change() {
 /*************************/
 
 // Answer button animations
+
+
+startButton.onclick = runQuiz;
