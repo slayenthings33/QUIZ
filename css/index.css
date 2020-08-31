@@ -42,11 +42,15 @@ body main h1 {
 #flexContainer {
     margin: 0px 70px;
     height: 100vh;
+    background-color: #FBE8A6;
     display: flex;
+}
+
+#questionContainer {
     flex-direction: column;
     align-items: center;
     align-content: center;
-    background-color: #FBE8A6;
+    justify-content: center;
 }
 
 #flexAnswers {
@@ -164,10 +168,13 @@ body main h1 {
         height: 100vh;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        align-content: center;
         background-color: #FBE8A6;
         justify-content: space-around;
+    }
+    #questionContainer {
+        align-items: center;
+        justify-content: center;
+        align-content: center;
     }
     #flexAnswers {
         width: 250px;
@@ -211,7 +218,7 @@ body main h1 {
     #question {
         margin-top: 5px;
         padding: 10px 10px;
-        width: 450px;
+        width: 400px;
         text-align: center;
         font-family: 'Fondamento', cursive;
     }
@@ -251,10 +258,12 @@ body main h1 {
         padding: 20px;
         display: flex;
         flex-flow: column wrap;
-        justify-content: space-around;
         text-align: center;
         border: black solid 1px;
         border-radius: 20px;
+    }
+    #questionContainer {
+        justify-content: center;
     }
     #flexContainer {
         margin: 0px 120px;
@@ -291,15 +300,6 @@ body main h1 {
         border: 1px solid black;
         cursor: pointer;
     }
-    /* #background {
-        background-image: url("../img/questionMarks.png");
-        background-position: center;
-        background-size: cover;
-        border-radius: 20px;
-        height: 400px;
-        width: 100%;
-        opacity: .5;
-    } */
 }
 
 /***********************/

@@ -14,7 +14,9 @@ let questionContainer = document.getElementById("questionContainer");
 let nextButton = document.getElementById("nextQuestion");
 let startButton = document.getElementById("startButton");
 let submittedAnswers = [];
+let userChoice;
 let score = 0;
+
 
 /*************************/
 /**********IMAGES*********/
@@ -117,6 +119,43 @@ let questions = [
 let numOfQuestions = questions.length;
 let questionCounter = 0;
 
+
+
+/*******************************/
+/*********EVENT LISTENERS*******/
+/*******************************/
+
+startButton.addEventListener("click", runQuiz);
+nextButton.addEventListener("click", goToNextQuestion);
+
+/*******************************/
+/*********MAIN FUNCTIONS********/
+/*******************************/
+
+function runQuiz() {
+    startButton.style.display = "none";
+    nextButton.style.display = "flex";
+    console.log(questionCounter);
+    change(); 
+}
+
+function setUserChoice(value) {
+    userChoice = value;
+}
+
+function getUserChoice() {
+    return userChoice;
+}
+
+function goToNextQuestion() {
+    if (questionCounter < numOfQuestions) {
+        console.log(questionPage);
+        change();
+    } else {
+        alert(`You finished with ${score} correct!`);
+    }
+} 
+
 function questionPage(counter) {
     return `
     <div>
@@ -151,31 +190,9 @@ function questionPage(counter) {
     `;
 }
 
-
-
-/*******************************/
-/*********MAIN FUNCTIONS********/
-/*******************************/
-
-
-
-function runQuiz() {
-    startButton.style.display = "none";
-    nextButton.style.display = "flex";
-    nextButton.onclick = () => {
-        if (questionCounter < numOfQuestions) {
-            console.log(questionPage);
-            change(score);
-        } else {
-            alert(`You finished with ${score} correct!`);
-        }
-    } 
-    change(score); 
-}
-
-function change(score) {
+function change() {
     if (questionCounter < numOfQuestions) {
-        let userChoice = -1;
+        console.log(questionCounter);
         questionContainer.innerHTML = questionPage(questionCounter);
         let answer1 = document.getElementById("answer1");
         let answer2 = document.getElementById("answer2");
@@ -203,8 +220,8 @@ function change(score) {
             answer4.style.color = "#B4DFE5";
             console.log(event.target);
             console.log(event.target.value);
-            userChoice = 0;
-            console.log(userChoice);
+            setUserChoice(0);
+            console.log(getUserChoice());
         };
         console.log("change answer2");
         console.log(answer2);
@@ -274,15 +291,16 @@ function change(score) {
         }
         console.log(userChoice);
         // let finalChoice = userChoice[userChoice.length - 1];
-        let finalChoice = userChoice;
+        let finalChoice = getUserChoice();
         let correctAnswer = questions[questionCounter].rightAnswer;
         console.log("Did we get the answer correct?")
         console.log(finalChoice);
         console.log(correctAnswer);
         console.log(finalChoice === correctAnswer);
         if (finalChoice === correctAnswer) {
-            score++;
             console.log("score");
+            console.log(score);
+            score++;
             console.log(score);
         }
         questionCounter++;
@@ -317,6 +335,3 @@ function endQuiz() {
 /*************************/
 
 // Answer button animations
-
-
-startButton.onclick = runQuiz;
