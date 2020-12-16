@@ -90,7 +90,7 @@ let questions = [
         rightAnswer: 0
     }, {
         question: "What year was the first microwave sold?",
-        image: "./img/microwave.jpeg",
+        image: "./img/microwave.jpg",
         answers: [
             "1987", "1992", "1967", "1974"
         ],
@@ -333,9 +333,9 @@ function endQuiz() {
         let resultsPage = `
         <main id="questionContainer">
             <p id="question">You made it to the end of the Quiz!</p>
-            <img id="quizPic" src="./img/allDone.gif" alt="Done and Done">
+            <img id="endQuizPic" src="./img/allDone.gif" alt="Done and Done">
             <div id="resultSection">
-                <p class="answer" id="results">Number correct: ${score}</p>
+                <p class="answer" id="results">You got ${score}/10 questions correct!</p>
                 <button href="" id="retakeQuizBtn" onclick='retakeQuiz()'>Retake Quiz</button>
             </div>    
         </main>            

@@ -124,13 +124,25 @@ body main h1 {
 /***********************/
 
 @media only screen and (max-width: 899px) {
-    #welcomePic, #quizPic {
-        margin: 25px;
+    #welcomePic{
+        width: 60vw;
+        margin: 30px;
+        box-shadow: black 3px 3px;
+    }
+    #quizPic {
+        margin: 30px;
         height: 230px;
         width: 50vw;
         margin-top: -40px;
         border: black solid 1px;
         border-radius: 20px;
+    }
+    #endQuizPic {
+        border: black 2px solid;
+        border-radius: 20px;
+    }
+    #results{
+        margin: 40px;
     }
     #flexContainer {
         margin: 0px 100px;
@@ -170,6 +182,7 @@ body main h1 {
         text-align: center;
         position: relative;   
         border: black solid 1px;
+        box-shadow: black 2px 2px;
         border-radius: 20px;
         background-color: #303C6C;
         color: #B4DFE5;
@@ -217,9 +230,12 @@ body main h1 {
 
 @media only screen and (min-width: 900px) {
     h1#welcomeTitle {
-        width: 400px;
+        width: 40vw;
         height: 50px;
         padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     body{
@@ -227,12 +243,20 @@ body main h1 {
         margin: 0px;
         padding: 0px;
     }
-    #welcomePic, #quizPic {
+    #welcomePic{
+        margin: 70px;
+    } 
+    #quizPic {
         height: 270px;
-        width: 450px;
+        width: 30vw;
         border: black solid 1px;
         border-radius: 20px;
         margin: 10px;
+    }
+    #endQuizPic {
+        margin: 40px 0px;
+        border: black 2px solid;
+        border-radius: 20px;
     }
     #question, #welcomeTitle {
         margin-top: 20px;
@@ -281,6 +305,7 @@ body main h1 {
         height: 30px;
         position: relative;   
         border: black solid 1px;
+        box-shadow: black 2px 2px;
         border-radius: 20px;
         font-family: 'Fondamento', cursive;
         background-color: #303C6C;
