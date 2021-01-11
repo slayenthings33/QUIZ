@@ -138,21 +138,21 @@ function runQuiz() {
     startButton.style.display = "none";
     retakeQuizBtn.style.display = "none";
     nextButton.style.display = "flex";
-    console.log("runQuiz")
+    // console.log("runQuiz")
     change(); 
 }
 
 function change() {
-    console.log("function change");
-    console.log(`question counter: ${questionCounter}`);    
+    // console.log("function change");
+    // console.log(`question counter: ${questionCounter}`);    
     if (questionCounter < numOfQuestions) {
         questionContainer.innerHTML = questionPage(questionCounter);
         let answer1 = document.getElementById("answer1");
         let answer2 = document.getElementById("answer2");
         let answer3 = document.getElementById("answer3");
         let answer4 = document.getElementById("answer4");
-        // console.log("change answer1");
-        // console.log(answer1);
+        console.log("change answer1");
+        console.log(answer1);
         answer1.onclick = () => {
             answer1.style.border = "1px black solid";
             answer1.style.fontWeight = "normal";
@@ -172,9 +172,9 @@ function change() {
             answer4.style.color = "#B4DFE5";
             userChoice = 0;
             // console.log(event.target);
-            console.log("correct answer: "+questions[questionCounter].rightAnswer);
-            console.log("userChoice: "+userChoice);
-            console.log("questionCounter: "+questionCounter);
+            // console.log("correct answer: "+questions[questionCounter].rightAnswer);
+            // console.log("userChoice: "+userChoice);
+            // console.log("questionCounter: "+questionCounter);
         };
         // console.log("change answer2");
         // console.log(answer2);
@@ -197,9 +197,9 @@ function change() {
             answer4.style.color = "#B4DFE5";
             userChoice = 1;
             // console.log(event.target);
-            console.log("correct answer :"+questions[questionCounter].rightAnswer);
-            console.log("userChoice:" +userChoice);
-            console.log("questionCounter: "+questionCounter);
+            // console.log("correct answer :"+questions[questionCounter].rightAnswer);
+            // console.log("userChoice:" +userChoice);
+            // console.log("questionCounter: "+questionCounter);
         };
         // console.log("change answer3");
         // console.log(answer3);
@@ -221,9 +221,9 @@ function change() {
             answer4.style.backgroundColor = "#303C6C";
             answer4.style.color = "#B4DFE5";
             userChoice = 2;
-            console.log("correct answer: "+questions[questionCounter].rightAnswer);
-            console.log("user choice:" +userChoice);
-            console.log("questionCounter: "+questionCounter);
+            // console.log("correct answer: "+questions[questionCounter].rightAnswer);
+            // console.log("user choice:" +userChoice);
+            // console.log("questionCounter: "+questionCounter);
         };
         // console.log("change answer4");
         // console.log(answer4);
@@ -245,31 +245,31 @@ function change() {
             answer4.style.color = "#303C6C";
             answer4.style.backgroundColor = "#ff85e3";
             userChoice = 3;
-            // console.log(event.target);
-            console.log("questionCounter: "+questionCounter);
-            console.log("correct answer: "+questions[questionCounter].rightAnswer);
-            console.log("userChoice: "+userChoice);
+            console.log(event.target);
+            // console.log("questionCounter: "+questionCounter);
+            // console.log("correct answer: "+questions[questionCounter].rightAnswer);
+            // console.log("userChoice: "+userChoice);
         }
-        console.log("selected: "+userChoice);
+        // console.log("selected: "+userChoice);
     }
     endQuiz();
 };
 
 function checkAnswer() {
     let correctAnswer = questions[questionCounter].rightAnswer;
-    console.log("***************************");
-    console.log(userChoice);
-    console.log("Correct answer: "+correctAnswer);
-    console.log(`Correct?: ${userChoice === correctAnswer}`);
+    // console.log("***************************");
+    // console.log(userChoice);
+    // console.log("Correct answer: "+correctAnswer);
+    // console.log(`Correct?: ${userChoice === correctAnswer}`);
     if (userChoice === correctAnswer) {
         score++;
-        console.log("well done, current score: "+score);
+        // console.log("well done, current score: "+score);
     }
 }
 
 function setUserChoice(value) {
     userChoice = value;
-    console.log("userChoice set");
+    // console.log("userChoice set");
 }
 
 function getUserChoice() {
@@ -277,51 +277,50 @@ function getUserChoice() {
 }
 
 function goToNextQuestion() {
-    console.log('score: '+score)
+    // console.log('score: '+score)
     checkAnswer();
     if (questionCounter < numOfQuestions) {
-        // console.log(questionPage);
         questionCounter++;
         change();
     } else {
         alert(`You finished with ${score} correct!`);
     }
-    console.log("questionCounter: "+questionCounter);
+    // console.log("questionCounter: "+questionCounter);
 } 
 
 function questionPage(questionCounter) {
     return `
-    <div id="questionContainer">
-    <p id="question">${
-        questions[questionCounter].question
-    }</p>
-    <img id="quizPic" src="${
-        questions[questionCounter].image
-    }" alt="Question Image">
-    <div id="flexAnswers">
-    <div>
-    <p class="answer" id="answer1" value="0">${
-        questions[questionCounter].answers[0]
-    }</p>
-    </div>
-    <div>
-    <p class="answer" id="answer2" value="1">${
-        questions[questionCounter].answers[1]
-    }</p>
-    </div>
-    <div>
-    <p class="answer" id="answer3" value="2">${
-        questions[questionCounter].answers[2]
-    }</p>
-    </div>
-    <div>
-    <p class="answer"id="answer4" value="3">${
-        questions[questionCounter].answers[3]
-    }</p>
-    </div>
-    </div>
-    </div>          
-    `;
+        <div id="questionContainer">
+            <p id="question">${
+                questions[questionCounter].question
+            }</p>
+            <img id="quizPic" src="${
+                questions[questionCounter].image
+            }" alt="Question Image">
+            <div id="flexAnswers">
+                <div>
+                    <p class="answer" id="answer1" value="0">${
+                        questions[questionCounter].answers[0]
+                    }</p>
+                </div>
+                <div>
+                    <p class="answer" id="answer2" value="1">${
+                        questions[questionCounter].answers[1]
+                    }</p>
+                </div>
+                <div>
+                    <p class="answer" id="answer3" value="2">${
+                        questions[questionCounter].answers[2]
+                    }</p>
+                </div>
+                <div>
+                    <p class="answer"id="answer4" value="3">${
+                        questions[questionCounter].answers[3]
+                    }</p>
+                </div>
+            </div>
+        </div>          
+        `;
 }
 
 function endQuiz() {
@@ -329,7 +328,7 @@ function endQuiz() {
         retakeQuizBtn.style.display = "flex";
         startButton.style.display = "none";
         nextButton.style.display = "none";
-        console.log("function endQuiz")
+        // console.log("function endQuiz")
         let resultsPage = `
         <main id="questionContainer">
             <p id="question">You made it to the end of the Quiz!</p>

@@ -22,6 +22,9 @@ body main h1 {
     background-color: #303C6C;
     color: #B4DFE5;
 }
+h1, button, p {
+    font-size: 3vw;
+}
 #question {
     padding: 15px 15px;
     margin: 50px;
@@ -47,10 +50,14 @@ body main h1 {
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
-    align-items: baseline;
     border: black solid 1px;
     border-radius: 20px;
     background-color: #B4DFE5;
+}
+.answer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
